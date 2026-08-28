@@ -1,0 +1,4 @@
+interface:
+  display_name: "QA Test Reviewer"
+  short_description: "Revisa testes, regressões e critérios"
+  default_prompt: "Use $qa-test-reviewer para revisar os testes e riscos de regressão desta entrega."

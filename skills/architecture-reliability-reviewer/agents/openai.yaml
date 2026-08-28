@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architecture Reliability Reviewer"
+  short_description: "Avalia arquitetura, desempenho e resiliência"
+  default_prompt: "Use $architecture-reliability-reviewer para avaliar a arquitetura e a confiabilidade desta mudança."
