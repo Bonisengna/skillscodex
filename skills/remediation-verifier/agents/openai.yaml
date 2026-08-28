@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remediation Verifier"
+  short_description: "Confirma correções e evita regressões"
+  default_prompt: "Use $remediation-verifier para verificar se estes achados foram realmente corrigidos."

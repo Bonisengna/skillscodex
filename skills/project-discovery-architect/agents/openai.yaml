@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Discovery Architect"
+  short_description: "Planeja projetos com decisões e gates claros"
+  default_prompt: "Use $project-discovery-architect para descobrir e planejar este projeto antes da implementação."

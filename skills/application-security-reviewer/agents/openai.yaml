@@ -1,0 +1,4 @@
+interface:
+  display_name: "Application Security Reviewer"
+  short_description: "Avalia riscos e controles de segurança"
+  default_prompt: "Use $application-security-reviewer para revisar a segurança desta aplicação conforme seu risco."
