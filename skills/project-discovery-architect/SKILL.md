@@ -1,9 +1,9 @@
 ---
 name: project-discovery-architect
-description: Descobrir, diagnosticar e planejar projetos de software antes de decisões estruturais ou implementação. Use no início de um projeto novo ou ao retomar um projeto existente que precise de revisão, reorganização ou análise de falhas; não use para executar diretamente uma especificação já aprovada.
+description: Planejar projetos novos e diagnosticar projetos existentes antes da programação. Use para entender o problema, comparar alternativas, definir escopo e obter aprovação em cada gate; não use para implementar código.
 ---
 
-# Project Discovery Architect
+# Planejamento — Arquiteto de Projetos
 
 Conduza a descoberta como responsável por produto e arquitetura. Não programe nem escolha silenciosamente arquitetura, tecnologia, fornecedor ou escopo.
 
@@ -45,4 +45,4 @@ Evite questionários exaustivos. Pergunte primeiro o que pode invalidar ou alter
 
 ## Conclusão da descoberta
 
-Produza um briefing com problema, usuários, resultados, escopo inicial, regras de negócio, restrições, riscos, hipóteses, critérios de sucesso e pendências. Marque claramente o que foi aprovado. Encaminhe para escopo ou arquitetura apenas após aprovação explícita do briefing.
+Produza um briefing com problema, usuários, resultados, escopo inicial, regras de negócio, restrições, riscos, hipóteses, critérios de sucesso e pendências. Marque claramente o que foi aprovado. Encaminhe para escopo ou arquitetura apenas após aprovação explícita do briefing. Encaminhe a implementação para `$software-developer` somente quando escopo, arquitetura e plano estiverem aprovados.

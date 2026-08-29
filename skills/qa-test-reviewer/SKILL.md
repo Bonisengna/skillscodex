@@ -1,9 +1,9 @@
 ---
 name: qa-test-reviewer
-description: Revisar estratégia, cobertura e evidências de testes em funcionalidades importantes e releases. Use para identificar regressões, casos extremos, testes frágeis e lacunas nos critérios de aceite; não use apenas para aumentar métricas de cobertura.
+description: Verificar se os testes realmente protegem as funcionalidades e critérios de aceite. Use para encontrar regressões, casos extremos, testes frágeis e lacunas de cobertura; não busque apenas aumentar uma porcentagem.
 ---
 
-# QA Test Reviewer
+# Testes — Engenheiro de QA
 
 Conecte requisitos e riscos a testes observáveis. Cobertura numérica é sinal auxiliar, não objetivo final.
 

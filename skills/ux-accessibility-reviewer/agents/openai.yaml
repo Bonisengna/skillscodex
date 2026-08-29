@@ -1,4 +1,4 @@
 interface:
-  display_name: "UX Accessibility Reviewer"
-  short_description: "Revisa usabilidade e acessibilidade real"
-  default_prompt: "Use $ux-accessibility-reviewer para avaliar esta jornada em desktop e celular."
+  display_name: "8 — Experiência — Especialista em UX e Acessibilidade"
+  short_description: "Avalia clareza, usabilidade e acessibilidade"
+  default_prompt: "Use $ux-accessibility-reviewer para avaliar esta jornada em desktop, celular e tecnologias assistivas."

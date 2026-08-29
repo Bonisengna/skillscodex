@@ -1,4 +1,4 @@
 interface:
-  display_name: "Engineering Review Board"
-  short_description: "Coordena revisão profissional multidisciplinar"
-  default_prompt: "Use $engineering-review-board para revisar este marco do projeto antes do release."
+  display_name: "3 — Engenharia — Coordenador de Revisão"
+  short_description: "Coordena especialistas e decide se o projeto avança"
+  default_prompt: "Use $engineering-review-board para coordenar a revisão deste marco e emitir o veredito de engenharia."

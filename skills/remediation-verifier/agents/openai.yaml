@@ -1,4 +1,4 @@
 interface:
-  display_name: "Remediation Verifier"
-  short_description: "Confirma correções e evita regressões"
-  default_prompt: "Use $remediation-verifier para verificar se estes achados foram realmente corrigidos."
+  display_name: "9 — Validação — Verificador de Correções"
+  short_description: "Confirma correções e detecta novas regressões"
+  default_prompt: "Use $remediation-verifier para confirmar se estes achados foram corrigidos sem criar novas falhas."
