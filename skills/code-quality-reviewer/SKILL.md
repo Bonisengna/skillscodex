@@ -1,9 +1,9 @@
 ---
 name: code-quality-reviewer
-description: Revisar qualidade e manutenibilidade de código em mudanças relevantes, marcos e releases. Use para encontrar defeitos, complexidade, duplicação, contratos frágeis e tratamento inadequado de erros; não use como revisão principal de segurança, UX ou arquitetura sistêmica.
+description: Encontrar defeitos e problemas de manutenção no código. Use em mudanças relevantes, marcos e releases para revisar lógica, complexidade, duplicação, contratos e erros; não substitua revisões de segurança, arquitetura ou experiência.
 ---
 
-# Code Quality Reviewer
+# Qualidade — Revisor de Código
 
 Revise o código alterado e suas dependências diretas. Considere convenções do repositório e preserve comportamento intencional.
 

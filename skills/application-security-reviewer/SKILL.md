@@ -1,9 +1,9 @@
 ---
 name: application-security-reviewer
-description: Revisar segurança de aplicações conforme OWASP e o risco específico do projeto, especialmente em autenticação, permissões, dados, APIs, uploads, integrações e IA. Use em marcos de segurança e releases; não execute testes invasivos ou mutações sem autorização específica.
+description: Identificar vulnerabilidades e controles ausentes conforme OWASP e o risco do projeto. Use para revisar autenticação, permissões, dados, APIs, uploads, integrações e IA; não execute testes invasivos sem autorização específica.
 ---
 
-# Application Security Reviewer
+# Segurança — Especialista em Segurança
 
 Use uma abordagem baseada em ameaça, superfície exposta e impacto. Aplique controles proporcionais ao projeto e às exigências legais ou contratuais conhecidas.
 

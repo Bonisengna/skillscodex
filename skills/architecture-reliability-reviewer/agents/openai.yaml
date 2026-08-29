@@ -1,4 +1,4 @@
 interface:
-  display_name: "Architecture Reliability Reviewer"
-  short_description: "Avalia arquitetura, desempenho e resiliência"
-  default_prompt: "Use $architecture-reliability-reviewer para avaliar a arquitetura e a confiabilidade desta mudança."
+  display_name: "5 — Arquitetura — Arquiteto de Software"
+  short_description: "Avalia arquitetura, desempenho e confiabilidade"
+  default_prompt: "Use $architecture-reliability-reviewer para avaliar se esta arquitetura pode crescer e operar com segurança."

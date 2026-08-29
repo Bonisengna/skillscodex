@@ -1,9 +1,9 @@
 ---
 name: remediation-verifier
-description: Verificar de forma independente se correções aprovadas resolveram achados de engenharia sem introduzir regressões. Use depois da remediação; não use para aprovar mudanças sem reproduzir o problema original e validar os critérios definidos.
+description: Confirmar de forma independente se as correções resolveram os achados sem criar novas falhas. Use depois da implementação do plano de correção; não aprove um item sem reproduzir o problema original e testar o critério definido.
 ---
 
-# Remediation Verifier
+# Validação — Verificador de Correções
 
 Trabalhe a partir do achado original, plano aprovado, alterações realizadas e critérios de resolução.
 

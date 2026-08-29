@@ -1,4 +1,4 @@
 interface:
-  display_name: "Code Quality Reviewer"
-  short_description: "Revisa defeitos e manutenção do código"
-  default_prompt: "Use $code-quality-reviewer para revisar a qualidade desta mudança de código."
+  display_name: "4 — Qualidade — Revisor de Código"
+  short_description: "Encontra defeitos e problemas de manutenção"
+  default_prompt: "Use $code-quality-reviewer para encontrar defeitos e problemas de manutenção nesta mudança."

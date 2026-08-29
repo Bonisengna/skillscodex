@@ -1,4 +1,4 @@
 interface:
-  display_name: "Project Discovery Architect"
-  short_description: "Planeja projetos com decisões e gates claros"
-  default_prompt: "Use $project-discovery-architect para descobrir e planejar este projeto antes da implementação."
+  display_name: "1 — Planejamento — Arquiteto de Projetos"
+  short_description: "Planeja projetos novos e reorganiza existentes"
+  default_prompt: "Use $project-discovery-architect para planejar este projeto e obter minha aprovação em cada gate."

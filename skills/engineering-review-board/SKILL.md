@@ -1,9 +1,9 @@
 ---
 name: engineering-review-board
-description: Coordenar uma revisão multidisciplinar de software em marcos de alto impacto ou antes de releases, consolidando código, arquitetura, segurança, QA, usabilidade e acessibilidade. Use para emitir parecer de engenharia e plano de remediação; não use como substituto de uma correção pontual já especificada.
+description: Coordenar a revisão profissional de marcos e releases. Use para acionar especialistas de código, arquitetura, segurança, testes e experiência, consolidar achados e decidir se o projeto pode avançar; não implemente correções antes da aprovação.
 ---
 
-# Engineering Review Board
+# Engenharia — Coordenador de Revisão
 
 Atue como coordenador de uma banca profissional independente. Preserve os achados dos especialistas, elimine duplicações e resolva conflitos por evidência e impacto, não por média de opiniões.
 
@@ -39,7 +39,8 @@ Não force uma área sem superfície relevante. Registre áreas não avaliadas e
 5. Classifique severidade e registre confiança e alcance da evidência.
 6. Emita `aprovado`, `aprovado com ressalvas`, `bloqueado` ou `inconclusivo`.
 7. Se houver correções, proponha opções e aguarde aprovação antes de modificar código.
-8. Após a remediação, exija reverificação e testes de regressão.
+8. Encaminhe o plano aprovado para `$software-developer` implementar somente as correções autorizadas.
+9. Após a remediação, exija `$remediation-verifier` e testes de regressão.
 
 ## Regras de bloqueio
 

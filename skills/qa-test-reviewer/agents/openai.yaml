@@ -1,4 +1,4 @@
 interface:
-  display_name: "QA Test Reviewer"
-  short_description: "Revisa testes, regressões e critérios"
-  default_prompt: "Use $qa-test-reviewer para revisar os testes e riscos de regressão desta entrega."
+  display_name: "7 — Testes — Engenheiro de QA"
+  short_description: "Verifica testes, regressões e critérios de aceite"
+  default_prompt: "Use $qa-test-reviewer para verificar os testes, critérios de aceite e riscos de regressão desta entrega."

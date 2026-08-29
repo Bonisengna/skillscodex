@@ -1,0 +1,4 @@
+interface:
+  display_name: "2 — Desenvolvimento — Programador de Software"
+  short_description: "Implementa o plano aprovado até o próximo gate"
+  default_prompt: "Use $software-developer para implementar o plano aprovado até o próximo gate de revisão."

@@ -4,14 +4,43 @@ Pacote de skills para planejar, revisar e evoluir projetos de software com respo
 
 ## Skills incluídas
 
-- `project-discovery-architect`: descoberta, diagnóstico e planejamento antes da implementação.
-- `engineering-review-board`: coordenação da banca multidisciplinar.
-- `code-quality-reviewer`: qualidade e manutenibilidade do código.
-- `architecture-reliability-reviewer`: arquitetura, desempenho e confiabilidade.
-- `application-security-reviewer`: segurança proporcional ao risco do projeto.
-- `qa-test-reviewer`: testes, regressões e critérios de aceite.
-- `ux-accessibility-reviewer`: usabilidade e acessibilidade em desktop e celular.
-- `remediation-verifier`: reverificação independente das correções.
+- `project-discovery-architect`: **1 — Planejamento — Arquiteto de Projetos**.
+- `software-developer`: **2 — Desenvolvimento — Programador de Software**.
+- `engineering-review-board`: **3 — Engenharia — Coordenador de Revisão**.
+- `code-quality-reviewer`: **4 — Qualidade — Revisor de Código**.
+- `architecture-reliability-reviewer`: **5 — Arquitetura — Arquiteto de Software**.
+- `application-security-reviewer`: **6 — Segurança — Especialista em Segurança**.
+- `qa-test-reviewer`: **7 — Testes — Engenheiro de QA**.
+- `ux-accessibility-reviewer`: **8 — Experiência — Especialista em UX e Acessibilidade**.
+- `remediation-verifier`: **9 — Validação — Verificador de Correções**.
+
+## Ordem de atuação
+
+| Ordem | Setor e função | Responsabilidade principal |
+| ---: | --- | --- |
+| 1 | Planejamento — Arquiteto de Projetos | Entende o problema, questiona requisitos, compara alternativas e registra decisões |
+| 2 | Desenvolvimento — Programador de Software | Implementa somente o escopo e o plano aprovados até o próximo gate |
+| 3 | Engenharia — Coordenador de Revisão | Abre a revisão, aciona especialistas e consolida o veredito |
+| 4 | Qualidade — Revisor de Código | Procura defeitos, complexidade e problemas de manutenção |
+| 5 | Arquitetura — Arquiteto de Software | Avalia estrutura, desempenho, dados, crescimento e recuperação |
+| 6 | Segurança — Especialista em Segurança | Identifica vulnerabilidades, ameaças e controles ausentes |
+| 7 | Testes — Engenheiro de QA | Verifica critérios de aceite, testes e riscos de regressão |
+| 8 | Experiência — Especialista em UX e Acessibilidade | Avalia jornadas, clareza, celular e tecnologias assistivas |
+| 9 | Validação — Verificador de Correções | Confirma se os achados foram resolvidos sem criar novas falhas |
+
+As etapas 4–8 são coordenadas pela etapa 3 e podem ocorrer em paralelo quando forem aplicáveis. Se o parecer exigir correções, a etapa 2 volta a atuar somente após aprovação do plano. A etapa 9 encerra o ciclo confirmando as correções.
+
+```mermaid
+flowchart TD
+    A["1. Planejamento"] --> B["2. Desenvolvimento"]
+    B --> C["3. Coordenação da revisão"]
+    C --> D["4–8. Revisões especializadas"]
+    D --> E{"Há correções aprovadas?"}
+    E -->|Não| H["Release aprovado"]
+    E -->|Sim| G["2. Programador corrige"]
+    G --> F["9. Verificação das correções"]
+    F --> C
+```
 
 ## Princípios
 
@@ -98,13 +127,17 @@ Depois que descoberta, escopo, arquitetura e plano forem aprovados, a implementa
 - nova API, webhook, upload ou integração;
 - preparação para publicação.
 
+```text
+Use $software-developer para implementar o escopo aprovado. Preserve as decisões registradas, execute os testes relevantes e pare no próximo gate sem fazer deploy.
+```
+
 ### 3. Executar a banca de revisão
 
 ```text
 Use $engineering-review-board para revisar este marco antes do release. Consolide código, arquitetura, segurança, QA, usabilidade e acessibilidade. Não altere o código antes de apresentar o plano de correção e receber minha aprovação.
 ```
 
-A coordenadora poderá usar os especialistas aplicáveis e produzir:
+O coordenador poderá usar os especialistas aplicáveis e produzir:
 
 1. `ENGINEERING_REVIEW_REPORT.md` — achados, evidências, severidade e veredito.
 2. `REMEDIATION_PLAN.md` — ordem e estratégia das correções.
@@ -118,7 +151,7 @@ Achados críticos ou altos bloqueiam o avanço. Achados médios exigem plano, re
 Após ler o relatório, aprove a estratégia desejada de forma explícita:
 
 ```text
-Aprovo o plano de correção proposto para os achados SEC-001 e CODE-002. Aplique somente essas correções, execute os testes definidos e não faça mudanças adicionais sem me consultar.
+Aprovo o plano de correção proposto para os achados SEC-001 e CODE-002. Use $software-developer para aplicar somente essas correções, executar os testes definidos e parar antes de qualquer mudança adicional.
 ```
 
 ### 5. Reverificar
@@ -131,16 +164,17 @@ O verificador deverá reproduzir o problema original, testar a correção e clas
 
 ## Quando usar cada skill diretamente
 
-| Skill | Exemplo de uso |
-| --- | --- |
-| `$project-discovery-architect` | Planejar um projeto novo ou diagnosticar um existente |
-| `$engineering-review-board` | Fazer uma revisão completa de um marco ou release |
-| `$code-quality-reviewer` | Revisar lógica, complexidade e manutenção de uma mudança |
-| `$architecture-reliability-reviewer` | Avaliar arquitetura, desempenho, dados e recuperação |
-| `$application-security-reviewer` | Revisar autenticação, permissões, APIs, dados e integrações |
-| `$qa-test-reviewer` | Avaliar testes, critérios de aceite e riscos de regressão |
-| `$ux-accessibility-reviewer` | Testar jornadas, responsividade e acessibilidade |
-| `$remediation-verifier` | Confirmar de forma independente as correções realizadas |
+| Ordem e nome exibido | Identificador técnico | Exemplo de uso |
+| --- | --- | --- |
+| 1 — Planejamento — Arquiteto de Projetos | `$project-discovery-architect` | Planejar um projeto novo ou diagnosticar um existente |
+| 2 — Desenvolvimento — Programador de Software | `$software-developer` | Implementar um plano ou uma correção aprovada |
+| 3 — Engenharia — Coordenador de Revisão | `$engineering-review-board` | Fazer uma revisão completa de um marco ou release |
+| 4 — Qualidade — Revisor de Código | `$code-quality-reviewer` | Revisar lógica, complexidade e manutenção de uma mudança |
+| 5 — Arquitetura — Arquiteto de Software | `$architecture-reliability-reviewer` | Avaliar arquitetura, desempenho, dados e recuperação |
+| 6 — Segurança — Especialista em Segurança | `$application-security-reviewer` | Revisar autenticação, permissões, APIs, dados e integrações |
+| 7 — Testes — Engenheiro de QA | `$qa-test-reviewer` | Avaliar testes, critérios de aceite e riscos de regressão |
+| 8 — Experiência — Especialista em UX e Acessibilidade | `$ux-accessibility-reviewer` | Testar jornadas, responsividade e acessibilidade |
+| 9 — Validação — Verificador de Correções | `$remediation-verifier` | Confirmar de forma independente as correções realizadas |
 
 ## Exemplo completo
 
