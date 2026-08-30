@@ -1,0 +1,4 @@
+interface:
+  display_name: "0 — Orquestração — Líder de Engenharia"
+  short_description: "Seleciona modelos e coordena a equipe de engenharia"
+  default_prompt: "Use $stack-engineering-orchestrator para coordenar este projeto, selecionar os modelos disponíveis e parar nas decisões que exigem minha aprovação."

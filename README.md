@@ -2,8 +2,13 @@
 
 Pacote de skills para planejar, revisar e evoluir projetos de software com responsabilidades separadas, gates de aprovação e rastreabilidade.
 
+Agora inclui um **orquestrador** que seleciona os especialistas e a configuração de modelo conforme cada tarefa. As nove skills anteriores foram preservadas. Comece pelo [guia do orquestrador](docs/ORQUESTRACAO.md).
+
+**Publicar este pacote no GitHub não o instala.** `codex/` contém configurações de exemplo, sem alterar seu Codex ou computador. A instalação é uma etapa separada, com conferência de versão, modelos disponíveis e backup.
+
 ## Skills incluídas
 
+- `stack-engineering-orchestrator`: **0 — Orquestração — Líder de Engenharia** (coordena todo o ciclo).
 - `project-discovery-architect`: **1 — Planejamento — Arquiteto de Projetos**.
 - `software-developer`: **2 — Desenvolvimento — Programador de Software**.
 - `engineering-review-board`: **3 — Engenharia — Coordenador de Revisão**.
@@ -18,6 +23,7 @@ Pacote de skills para planejar, revisar e evoluir projetos de software com respo
 
 | Ordem | Setor e função | Responsabilidade principal |
 | ---: | --- | --- |
+| 0 | Orquestração — Líder de Engenharia | Identifica a etapa, seleciona modelos e especialistas e controla os gates |
 | 1 | Planejamento — Arquiteto de Projetos | Entende o problema, questiona requisitos, compara alternativas e registra decisões |
 | 2 | Desenvolvimento — Programador de Software | Implementa somente o escopo e o plano aprovados até o próximo gate |
 | 3 | Engenharia — Coordenador de Revisão | Abre a revisão, aciona especialistas e consolida o veredito |
@@ -28,16 +34,17 @@ Pacote de skills para planejar, revisar e evoluir projetos de software com respo
 | 8 | Experiência — Especialista em UX e Acessibilidade | Avalia jornadas, clareza, celular e tecnologias assistivas |
 | 9 | Validação — Verificador de Correções | Confirma se os achados foram resolvidos sem criar novas falhas |
 
-As etapas 4–8 são coordenadas pela etapa 3 e podem ocorrer em paralelo quando forem aplicáveis. Se o parecer exigir correções, a etapa 2 volta a atuar somente após aprovação do plano. A etapa 9 encerra o ciclo confirmando as correções.
+O orquestrador é o ponto de entrada; aplica a etapa 3 ao coordenar uma revisão, sem criar coordenadores recursivos. As etapas 4–8 podem ocorrer em paralelo quando forem aplicáveis. Segurança participa desde o planejamento quando houver riscos relevantes, não apenas na posição 6 da lista. Se o parecer exigir correções, a etapa 2 volta a atuar somente após aprovação do plano. A etapa 9 confirma as correções.
 
 ```mermaid
 flowchart TD
     A["1. Planejamento"] --> B["2. Desenvolvimento"]
     B --> C["3. Coordenação da revisão"]
     C --> D["4–8. Revisões especializadas"]
-    D --> E{"Há correções aprovadas?"}
-    E -->|Não| H["Release aprovado"]
-    E -->|Sim| G["2. Programador corrige"]
+    D --> E{"Parecer"}
+    E -->|Aprovado| H["Aguardar autorização de publicação"]
+    E -->|Bloqueado ou inconclusivo| I["Resolver pendências e aprovar plano"]
+    I --> G["2. Programador corrige, se autorizado"]
     G --> F["9. Verificação das correções"]
     F --> C
 ```
@@ -55,44 +62,23 @@ Cada skill está em `skills/<nome-da-skill>/` com seu `SKILL.md`, metadados de i
 
 ## Como instalar
 
-### Opção 1 — Clonar o repositório
+Siga a seção **Preparação e instalação posterior** do [guia](docs/ORQUESTRACAO.md). Ela separa atualização do Git, preparação dos perfis e ativação no cliente.
 
-```bash
-git clone https://github.com/Bonisengna/skillscodex.git
-```
+Nas versões locais atuais, a documentação indica `.agents/skills` para skills, enquanto agentes e configurações usam `.codex`. Instalações anteriores podem ter skills em `.codex/skills`; confira a versão e os caminhos efetivamente descobertos antes de migrar. Não mantenha cópias duplicadas da mesma skill sem necessidade. [Documentação de skills](https://learn.chatgpt.com/docs/build-skills)
 
-Copie as pastas que estão dentro de `skillscodex/skills/` para a pasta de skills do Codex:
-
-**Linux ou macOS**
-
-```bash
-mkdir -p ~/.codex/skills
-cp -R skillscodex/skills/* ~/.codex/skills/
-```
-
-**Windows PowerShell**
-
-```powershell
-New-Item -ItemType Directory -Force "$HOME\.codex\skills"
-Copy-Item -Recurse -Force ".\skillscodex\skills\*" "$HOME\.codex\skills\"
-```
-
-Depois, abra uma nova conversa ou reinicie o Codex para que as skills instaladas sejam descobertas.
-
-### Opção 2 — Instalar somente uma skill
-
-Copie apenas a pasta desejada, preservando toda a sua estrutura. Exemplo:
-
-```text
-~/.codex/skills/project-discovery-architect/
-├── SKILL.md
-├── agents/
-└── references/
-```
-
-Não copie somente o `SKILL.md`, pois algumas skills dependem dos arquivos em `references/`.
+Preserve a pasta completa de cada skill, incluindo `agents/` e `references/`. Instalar somente o orquestrador não instala automaticamente as nove skills da equipe. O ChatGPT Work hospedado exige instalação própria; arquivos do Windows não configuram esse ambiente automaticamente.
 
 ## Como acionar uma skill
+
+Para coordenar o trabalho completo no Codex:
+
+```text
+Use $stack-engineering-orchestrator neste projeto. Identifique a etapa atual,
+selecione os modelos disponíveis e delegue apenas o que trouxer benefício.
+Discuta comigo as decisões estruturais e pare no próximo gate de aprovação.
+```
+
+No ChatGPT, selecione a skill com `@` quando ela estiver disponível no seu catálogo. No Codex CLI/IDE, use `$` ou o seletor de skills.
 
 Use o nome da skill com o prefixo `$` no início ou no corpo do pedido.
 
@@ -166,6 +152,7 @@ O verificador deverá reproduzir o problema original, testar a correção e clas
 
 | Ordem e nome exibido | Identificador técnico | Exemplo de uso |
 | --- | --- | --- |
+| 0 — Orquestração — Líder de Engenharia | `$stack-engineering-orchestrator` | Conduzir o projeto, selecionar modelos e coordenar os papéis necessários |
 | 1 — Planejamento — Arquiteto de Projetos | `$project-discovery-architect` | Planejar um projeto novo ou diagnosticar um existente |
 | 2 — Desenvolvimento — Programador de Software | `$software-developer` | Implementar um plano ou uma correção aprovada |
 | 3 — Engenharia — Coordenador de Revisão | `$engineering-review-board` | Fazer uma revisão completa de um marco ou release |
@@ -189,3 +176,13 @@ Quando o projeto atingir um marco:
 ```text
 Use $engineering-review-board para revisar a funcionalidade de cadastro e autenticação. Considere o código, arquitetura, segurança, testes, interface em desktop e celular e acessibilidade. Achados críticos e altos devem bloquear o release. Gere o relatório e o plano, mas não corrija nada antes da minha aprovação.
 ```
+
+## Validar o pacote sem instalar
+
+Requer Python 3.11 ou superior, sem dependências adicionais:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Os testes verificam configuração, referências e preparação de perfis. Não chamam modelos, não auditam uma aplicação e não comprovam compatibilidade com a sua versão do Codex. Veja as [limitações de validação](docs/VALIDACAO.md).
