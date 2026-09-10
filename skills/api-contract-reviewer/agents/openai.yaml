@@ -1,0 +1,4 @@
+interface:
+  display_name: "Contratos de API — Revisor de Compatibilidade"
+  short_description: "Revisa compatibilidade de APIs e eventos"
+  default_prompt: "Use $api-contract-reviewer para revisar a compatibilidade e o versionamento deste contrato de API."

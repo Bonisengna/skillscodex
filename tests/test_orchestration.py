@@ -14,6 +14,16 @@ SPEC.loader.exec_module(MODULE)
 
 
 class ConfigurationTests(unittest.TestCase):
+    def test_all_skills_have_entrypoint_and_ui_metadata(self):
+        skills = sorted(path for path in (ROOT / "skills").iterdir() if path.is_dir())
+        self.assertEqual(len(skills), 12)
+        for path in skills:
+            content = (path / "SKILL.md").read_text(encoding="utf-8")
+            self.assertRegex(content, rf"(?m)^name: {re.escape(path.name)}$")
+            self.assertRegex(content, r"(?m)^description: \S")
+            metadata = (path / "agents" / "openai.yaml").read_text(encoding="utf-8")
+            self.assertIn(f"${path.name}", metadata)
+
     def test_all_agents_have_unique_names_and_supported_fields(self):
         names = set()
         for path in (ROOT / "codex" / "agents").glob("*.toml"):
@@ -28,10 +38,10 @@ class ConfigurationTests(unittest.TestCase):
             self.assertTrue(data["developer_instructions"])
             for skill in re.findall(r"\$([a-z0-9-]+)", data["developer_instructions"]):
                 self.assertTrue((ROOT / "skills" / skill / "SKILL.md").is_file(), skill)
-        self.assertEqual(len(names), 11)
+        self.assertEqual(len(names), 13)
 
     def test_review_agents_are_read_only(self):
-        for name in ("triagem", "planejamento", "coordenacao", "qualidade", "arquitetura", "seguranca", "experiencia"):
+        for name in ("triagem", "planejamento", "coordenacao", "qualidade", "arquitetura", "seguranca", "experiencia", "contratos_api", "pipeline"):
             data = tomllib.loads((ROOT / "codex" / "agents" / f"{name}.toml").read_text(encoding="utf-8"))
             self.assertEqual(data["sandbox_mode"], "read-only")
 

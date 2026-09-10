@@ -3,8 +3,8 @@
 ## O que foi criado
 
 - Uma skill central, **0 — Orquestração — Líder de Engenharia**, baseada nos três anexos enviados. O pacote `.skill` continha os mesmos dois documentos avulsos.
-- As nove skills existentes continuam com seus nomes e responsabilidades.
-- Onze configurações de subagentes: os nove papéis, mais triagem e uma variante de programador para mudanças complexas. Não significa onze agentes executando ao mesmo tempo.
+- As nove skills existentes continuam com seus nomes e responsabilidades; revisões especializadas de contratos de API e CI/CD foram acrescentadas.
+- Treze configurações de subagentes: os nove papéis, duas especialidades, mais triagem e uma variante de programador para mudanças complexas. Não significa treze agentes executando ao mesmo tempo.
 - Um acordo `AGENTS.md` para acionar o fluxo em trabalhos de programação após instalação deliberada.
 - Três perfis preparáveis offline, sem credenciais, API paga ou instalação automática.
 
@@ -24,6 +24,8 @@
 | `testes` | 7 — QA | GPT-5.6 Terra | medium |
 | `experiencia` | 8 — UX e acessibilidade | GPT-5.6 Terra | medium |
 | `verificacao` | 9 — Confirmar correções | GPT-5.6 Sol | high |
+| `contratos_api` | Revisar contratos de API | GPT-5.6 Terra | high |
+| `pipeline` | Revisar pipeline e release | GPT-5.6 Sol | high |
 
 Essa distribuição é uma política inicial do pacote, não prova de que cada modelo seja sempre superior nesse papel. O orquestrador deve ajustar a escolha à tarefa e ao catálogo disponível, preservando preferências explícitas. Não há garantia de acesso a todos os modelos da tabela.
 
@@ -102,7 +104,7 @@ Antes de copiar qualquer coisa:
 2. Conferir versão, modelos disponíveis e suporte a agentes TOML independentes. Versões antigas podem usar outra estrutura; não misturar formatos sem verificar.
 3. Escolher instalação por projeto ou pessoal/global. Por projeto reduz o alcance da mudança inicial.
 4. Fazer backup dos destinos existentes e revisar diferenças.
-5. Instalar as dez pastas de skills completas no local reconhecido pelo cliente. Na documentação local atual: `.agents/skills` no projeto ou no usuário. Conferir a instalação anterior em `.codex/skills` antes de migrar, sem apagar dados nem criar duplicatas.
+5. Instalar as doze pastas de skills completas no local reconhecido pelo cliente. Na documentação local atual: `.agents/skills` no projeto ou no usuário. Conferir a instalação anterior em `.codex/skills` antes de migrar, sem apagar dados nem criar duplicatas.
 6. Mesclar o config preparado e o acordo `AGENTS.md`; copiar agentes para o local compatível. Em instalação por projeto: config/agentes sob `.codex/`, acordo na raiz do projeto. Em instalação pessoal: respeitar o diretório configurado do Codex.
 7. Confirmar a descoberta das skills e papéis em uma nova sessão, e só então testar uma tarefa pequena, sem publicação e sem dados reais.
 

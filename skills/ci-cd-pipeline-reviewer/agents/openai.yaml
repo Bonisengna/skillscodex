@@ -1,0 +1,4 @@
+interface:
+  display_name: "CI/CD — Revisor de Pipeline e Release"
+  short_description: "Revisa segurança e reversibilidade do release"
+  default_prompt: "Use $ci-cd-pipeline-reviewer para revisar este pipeline e os controles do processo de release."

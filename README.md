@@ -2,7 +2,7 @@
 
 Pacote de skills para planejar, revisar e evoluir projetos de software com responsabilidades separadas, gates de aprovação e rastreabilidade.
 
-Agora inclui um **orquestrador** que seleciona os especialistas e a configuração de modelo conforme cada tarefa. As nove skills anteriores foram preservadas. Comece pelo [guia do orquestrador](docs/ORQUESTRACAO.md).
+Agora inclui um **orquestrador** que seleciona os especialistas e a configuração de modelo conforme cada tarefa. As nove skills anteriores foram preservadas e duas revisões especializadas foram acrescentadas. Comece pelo [guia do orquestrador](docs/ORQUESTRACAO.md).
 
 **Publicar este pacote no GitHub não o instala.** `codex/` contém configurações de exemplo, sem alterar seu Codex ou computador. A instalação é uma etapa separada, com conferência de versão, modelos disponíveis e backup.
 
@@ -18,6 +18,8 @@ Agora inclui um **orquestrador** que seleciona os especialistas e a configuraç�
 - `qa-test-reviewer`: **7 — Testes — Engenheiro de QA**.
 - `ux-accessibility-reviewer`: **8 — Experiência — Especialista em UX e Acessibilidade**.
 - `remediation-verifier`: **9 — Validação — Verificador de Correções**.
+- `api-contract-reviewer`: **Contratos de API — Revisor de Compatibilidade**.
+- `ci-cd-pipeline-reviewer`: **CI/CD — Revisor de Pipeline e Release**.
 
 ## Ordem de atuação
 
@@ -33,8 +35,10 @@ Agora inclui um **orquestrador** que seleciona os especialistas e a configuraç�
 | 7 | Testes — Engenheiro de QA | Verifica critérios de aceite, testes e riscos de regressão |
 | 8 | Experiência — Especialista em UX e Acessibilidade | Avalia jornadas, clareza, celular e tecnologias assistivas |
 | 9 | Validação — Verificador de Correções | Confirma se os achados foram resolvidos sem criar novas falhas |
+| Especialidade | Contratos de API — Revisor de Compatibilidade | Verifica estabilidade, versionamento e impacto em consumidores |
+| Gate de release | CI/CD — Revisor de Pipeline e Release | Verifica entrega segura, reversível e observável |
 
-O orquestrador é o ponto de entrada; aplica a etapa 3 ao coordenar uma revisão, sem criar coordenadores recursivos. As etapas 4–8 podem ocorrer em paralelo quando forem aplicáveis. Segurança participa desde o planejamento quando houver riscos relevantes, não apenas na posição 6 da lista. Se o parecer exigir correções, a etapa 2 volta a atuar somente após aprovação do plano. A etapa 9 confirma as correções.
+O orquestrador é o ponto de entrada; aplica a etapa 3 ao coordenar uma revisão, sem criar coordenadores recursivos. As etapas 4–8 e as especialidades de contrato ou CI/CD podem ocorrer em paralelo quando forem aplicáveis. Segurança participa desde o planejamento quando houver riscos relevantes, não apenas na posição 6 da lista. Se o parecer exigir correções, a etapa 2 volta a atuar somente após aprovação do plano. A etapa 9 confirma as correções.
 
 ```mermaid
 flowchart TD
@@ -162,6 +166,8 @@ O verificador deverá reproduzir o problema original, testar a correção e clas
 | 7 — Testes — Engenheiro de QA | `$qa-test-reviewer` | Avaliar testes, critérios de aceite e riscos de regressão |
 | 8 — Experiência — Especialista em UX e Acessibilidade | `$ux-accessibility-reviewer` | Testar jornadas, responsividade e acessibilidade |
 | 9 — Validação — Verificador de Correções | `$remediation-verifier` | Confirmar de forma independente as correções realizadas |
+| Contratos de API — Revisor de Compatibilidade | `$api-contract-reviewer` | Revisar endpoints, webhooks, eventos e compatibilidade entre consumidores |
+| CI/CD — Revisor de Pipeline e Release | `$ci-cd-pipeline-reviewer` | Revisar pipeline, rollback, migrations e observabilidade do release |
 
 ## Exemplo completo
 

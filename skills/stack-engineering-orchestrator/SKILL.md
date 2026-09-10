@@ -28,6 +28,8 @@ Coordenar a equipe como ponto único de contato do usuário. Selecionar apenas o
 | 7 — Testes | `$qa-test-reviewer` | Critérios de aceite, testes críticos e regressão |
 | 8 — Experiência | `$ux-accessibility-reviewer` | Interface, jornadas ou acessibilidade afetadas |
 | 9 — Validação | `$remediation-verifier` | Correções precisam de confirmação independente |
+| Especialidade — Contratos de API | `$api-contract-reviewer` | Endpoint, webhook, evento, schema ou integração mudou |
+| Gate de release — CI/CD | `$ci-cd-pipeline-reviewer` | Pipeline, deploy, migration, rollback ou publicação mudou |
 
 Skill é instrução, não processo nem modelo. Ler o `SKILL.md` completo de cada papel utilizado e as referências exigidas por ele. Resolver pelo catálogo instalado ou pela pasta `skills/<nome>/` do repositório disponível; não inventar caminhos ou dependências. Se uma skill faltar, informar e aplicar somente os critérios conhecidos, registrando menor cobertura.
 

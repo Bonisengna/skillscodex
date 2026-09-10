@@ -24,8 +24,10 @@ Coordene, quando disponíveis e aplicáveis:
 - `$code-quality-reviewer`;
 - `$architecture-reliability-reviewer`;
 - `$application-security-reviewer`;
+- `$api-contract-reviewer` quando interfaces entre sistemas forem afetadas;
 - `$qa-test-reviewer`;
 - `$ux-accessibility-reviewer`;
+- `$ci-cd-pipeline-reviewer` quando pipeline ou processo de release estiver no escopo;
 - `$remediation-verifier` após as correções.
 
 Não force uma área sem superfície relevante. Registre áreas não avaliadas e o motivo.
