@@ -38,6 +38,21 @@ Prefira a stack habitual aprovada para o projeto. Quando ela não atender a um r
 
 Ao receber um `REMEDIATION_PLAN.md`, implemente somente os achados e abordagens aprovados. Preserve os IDs dos achados, registre desvios inevitáveis e não reduza a severidade por conta própria. Depois dos testes, encaminhe a mudança para `$remediation-verifier`.
 
+## Boas práticas para mensagens de commit
+
+Trate cada mensagem de commit como parte da documentação histórica do projeto. Ela deve permitir que outra pessoa — ou você no futuro — entenda com clareza o que mudou e por quê, mesmo sem conhecer o contexto original.
+
+Ao criar commits:
+
+- mantenha a primeira linha curta, objetiva e com no máximo 72 caracteres;
+- inicie preferencialmente com um verbo no infinitivo que descreva a ação, como `Adicionar`, `Corrigir`, `Atualizar`, `Remover` ou `Refatorar`;
+- descreva a mudança de forma suficientemente específica, por exemplo: `Atualizar texto do título da página`;
+- quando for necessário explicar contexto ou motivo, deixe uma linha em branco após o título e adicione uma descrição complementar;
+- evite colocar detalhes técnicos complexos no título do commit; mantenha esses detalhes no corpo do commit, comentários de código ou documentação quando forem relevantes;
+- não use mensagens genéricas como `ajustes`, `mudanças`, `fix` ou `update` sem indicar claramente o que foi alterado.
+
+Antes de finalizar um commit, confirme que sua mensagem descreve a alteração de forma clara, concisa e compreensível fora do contexto imediato da tarefa.
+
 ## Entrega no gate
 
 Informe:
